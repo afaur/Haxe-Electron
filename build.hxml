@@ -1,0 +1,9 @@
+-cp src
+-lib mithril
+-js build/app.js
+-main basic.Main
+-lib hxnodejs
+-lib electron
+-dce full
+-debug
+
