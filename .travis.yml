@@ -1,0 +1,9 @@
+language: node_js
+
+before_install:
+  - wget http://www.openfl.org/builds/haxe/haxe-3.2.1-linux-installer.tar.gz -O - | tar -xv
+  - sudo sh install-haxe.sh -y
+  - haxelib install buddy 0.18.1
+
+script:
+  - ./check
