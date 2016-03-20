@@ -2,6 +2,7 @@ package basic;
 
 import electron.main.App;
 import electron.main.BrowserWindow;
+import electron.main.GlobalShortcut;
 import electron.common.CrashReporter;
 import js.Node.*;
 
@@ -19,10 +20,23 @@ class Main {
 		});
 
 		var mainWindow = null;
+
 		App.on( ready, function() {
+
 			mainWindow = new BrowserWindow( { width: 360, height: 700 } );
+			mainWindow.hide();
 			mainWindow.loadURL( 'file://' + __dirname + '/app.html' );
 			mainWindow.on( closed, function() mainWindow = null );
+
+			var shortcut = GlobalShortcut.register('ctrl+x', function() {
+				trace(mainWindow);
+				if (mainWindow.isVisible() == true) {
+					mainWindow.hide();
+				} else {
+					mainWindow.show();
+				}
+			});
+
 		});
 	}
 }
