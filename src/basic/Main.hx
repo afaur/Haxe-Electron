@@ -23,14 +23,12 @@ class Main {
 
 		App.on( ready, function() {
 
-			mainWindow = new BrowserWindow( { width: 360, height: 700 } );
-			mainWindow.hide();
+			mainWindow = new BrowserWindow( { show: false, width: 360, height: 700 } );
 			mainWindow.loadURL( 'file://' + __dirname + '/app.html' );
 			mainWindow.on( closed, function() mainWindow = null );
 
-			var shortcut = GlobalShortcut.register('ctrl+x', function() {
-				trace(mainWindow);
-				if (mainWindow.isVisible() == true) {
+			GlobalShortcut.register('ctrl+x', function() {
+				if (mainWindow.isVisible()) {
 					mainWindow.hide();
 				} else {
 					mainWindow.show();
