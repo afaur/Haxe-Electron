@@ -23,7 +23,10 @@ class Main {
 
 		App.on( ready, function() {
 
-			mainWindow = new BrowserWindow( { show: false, width: 360, height: 700 } );
+			mainWindow = new BrowserWindow({
+				frame: false, show: false, resizable: false,
+				width: 600, height: 70
+			});
 			mainWindow.loadURL( 'file://' + __dirname + '/app.html' );
 			mainWindow.on( closed, function() mainWindow = null );
 

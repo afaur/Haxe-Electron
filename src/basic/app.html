@@ -17,14 +17,37 @@
         opacity: 0;
         transition: opacity 2s;
       }
+      #data {
+        background-color: grey;
+        padding: 6px;
+        border-radius: 5px;
+      }
+      #q {
+        font-size: 30px;
+        background-color : #d1d1d1;
+        display: block;
+        font-family: sans-serif;
+        appearance: none;
+        box-shadow: none;
+        border-radius: none;
+        width: 99%
+      }
+      #q:focus {
+        outline: none;
+        width: 99%
+      }
+      #copy {
+        display: none;
+      }
     </style>
     <script src="App.js" defer></script>
   </head>
   <body>
     <div id="data">
-      <input type="text" id="q" />
+      <input type="text" id="q"/>
+      <!--
       <button id="copy">Copy</button>
+      -->
     </div>
-    <img id="logo" src="http://haxe.org/img/haxe-logo.svg" />
   </body>
 </html>
