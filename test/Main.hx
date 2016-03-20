@@ -4,16 +4,27 @@ import buddy.*;
 using buddy.Should;
 using Std;
 
-using basic.util.Point;
+using basic.Copy;
 
 class Main implements Buddy<[Tests]> {}
 
 class Tests extends BuddySuite {
 	public function new() {
-		describe("Creating a new point with values [1,2].", {
-			it("Calling getCoords should return 1,2", {
-				var point = new Point([1,2]);
-				point.getCoords().should.be("1,2");
+		describe("Clipboard", {
+
+			var basicObject : Dynamic = { value: 'somevalue' };
+			var element : Dynamic = { addEventListener: function(n, m) {} };
+			var clipboardValue : String = "";
+			var clipboard : Dynamic = {
+				writeText: function(val) {
+					clipboardValue = val;
+				}
+			};
+
+			it("Kupi", {
+				var copy = new Copy(basicObject,element,clipboard);
+				copy.kupi();
+				clipboardValue.should.be('somevalue');
 			});
 		});
 	}

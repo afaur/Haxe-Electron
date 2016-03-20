@@ -1,7 +1,11 @@
 #!/bin/bash
 
+./clean
+
 haxe build.hxml
 
-electron ./build/app.js
+cp src/basic/app.html ./build
+
+electron ./build/main.js
 
 #nekotools server -d .

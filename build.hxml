@@ -1,8 +1,12 @@
 -cp src
--js build/app.js
--main basic.Main
 -lib hxnodejs
 -lib electron
--dce full
--debug
+--each
 
+--next
+-js build/main.js
+-main basic.Main
+
+--next
+-js build/app.js
+-main basic.App
