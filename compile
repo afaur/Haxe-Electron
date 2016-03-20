@@ -5,6 +5,7 @@
 haxe build.hxml
 
 cp src/basic/app.html ./build
+cp src/basic/results.html ./build
 
 electron ./build/main.js
 
